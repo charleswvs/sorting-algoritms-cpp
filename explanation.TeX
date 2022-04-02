@@ -1,0 +1,69 @@
+\documentclass{article}
+\author{Charles Willian Vieira da Silva}
+\title{Análise de algoritmos de ordenação}
+
+\begin{document}
+\maketitle
+
+\section{Quick Sort}
+O algoritmo Quick Sort é um dos mais eficientes para ordenar dados. Ele é um metódo de ordenação estável recursivo que utiliza a estratégia de "separar e conquistar".
+
+O algoritmo consiste em 4 etapas:
+
+1. Se houver 1 ou menos elementos na lista a ser ordenada, retorne.\linebreak
+2. Escolhe um elemento para ser o pivô.\linebreak
+3. Particione a lista em dois sub-listas, uma com os elementos menores que o pivô e outra com os maiores.\linebreak
+4. Ordena as duas sub-listas recursivamente.\linebreak
+
+O pior caso para o Quick Sort é quando a função produz apenas sub-listas desbalanceadas, ou seja, uma lista com (n-1) elementos e outra com apenas 1 elemento, isso ocorre quando a lista está ordenada ou reversamente ordenada. A relação de recorrência do pior caso é:
+
+\begin{displaymath} T(n)=T(n-1)+1  \end{displaymath}
+
+Ao realizar o somatório, chegamos ao tempo teórico de execução de {\displaystyle O (n^{2})}.\linebreak
+
+O melhor caso para o algoritmo é quando função produz 2 listas com (n/2) elementos. Neste caso a relação de recorrência e dada por: 
+
+\begin{displaymath} T(n) = 2T({\frac {n}{2}})+\theta (n)\end{displaymath}
+
+Ao resolver esta relação com o teorema de mestre, chegamos a um tempo teórico de {\displaystyle O (nlog_{2}n)} 
+
+\subsection{Testes}
+
+Todos os testes foram realizados com instâncias de números inteiros positivos
+
+
+\begin{itemize}
+  \item \textbf{1.000.000 elementos aleatórios} - Tempo de execução: 0,90 segundos  
+  \item \textbf{500.000 elementos aleatórios} - Tempo de execução: 1,28 segundos \item \textbf{300.000 elementos ordenados} - Tempo de execução: 2,8 minutos
+  \item \textbf{100.000 elementos ordenados} - Tempo de execução: 25 segundos
+  \item \textbf{100.000 elementos aleatórios} - Tempo de execução: 1,24 segundos
+  \item \textbf{10.000 elementos aleatórios} - Tempo de execução: 0,71 segundos \item \textbf{10.000 elementos ordenados} - Tempo de execução: 1,12 segundos
+\end{itemize}  
+
+Como foi antecipado pelo tempo teórico, ao ordenarmos a lista, percebemos que o tempo de execução tem um aumento significativo, entretanto, em todos os outros casos, os tempos de execuções são baixos.
+
+\section{Selection sort}
+
+O algoritmo Selection Sort é um algoritmo simples, porém não performa muito bem ao comparar um grande número de elementos.
+
+O algoritmo consiste em percorrer uma lista e adicionar menor elementos na primeira posição da lista. Sua complexidade, independente do caso é de \begin{displaymath}O(n^{2})\end{displaymath}, dada pela seguinte relação de recorrência:
+\begin{displaymath} T(n)=T(n-1)+ n  \end{displaymath}
+
+\subsection{Testes}
+
+Todos os testes foram realizados com instâncias de números inteiros positivos
+
+
+\begin{itemize}
+  \item \textbf{1.000.000 elementos aleatórios} - Tempo de execução: 14,5 minutos  
+  \item \textbf{500.000 elementos aleatórios} - Tempo de execução: 4 minutos  
+  \item \textbf{500.000 elementos ordenados} - Tempo de execução: 3,76 minutos
+  \item \textbf{100.000 elementos aleatórios} - Tempo de execução: 10 segundos
+  \item \textbf{10.000 elementos aleatórios} - Tempo de execução: 1,3 segundos 
+\end{itemize}  
+
+Como podemos perceber, o teórico de \begin{displaystyle} O(n^{2}) \end{displaystyle} se mostra na prática. Podemos também notar que o algoritmo tem uma mínima diferença ao utilizarmos uma instância ordenada.
+
+
+
+\end{document}  
